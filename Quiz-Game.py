@@ -1,4 +1,5 @@
 # Simple Quiz Game
+import easygui
 
 score = 0
 questions = [
@@ -9,11 +10,13 @@ questions = [
 ]
 
 for question, correct_answer in questions:
-    answer = input(question + " ")
+    answer = easygui.enterbox(question, "Give your answers")
+   
     if answer.strip().lower() == correct_answer.lower():
         print("Correct!")
         score += 1
     else:
         print("Wrong!")
 
-print(f"Your final score is: {score}/{len(questions)}")
+easygui.msgbox(f"Your final score is: {score}/{len(questions)}", "Result")
+
